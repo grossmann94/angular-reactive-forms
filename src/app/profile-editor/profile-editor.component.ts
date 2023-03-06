@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormBuilder,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-profile-editor',
@@ -10,14 +15,14 @@ export class ProfileEditorComponent {
   constructor(private fb: FormBuilder) {}
 
   profileForm = this.fb.group({
-    firstName: [''],
-    lastName: [''],
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
 
     address: this.fb.group({
       street: [''],
       streetNumber: [''],
       zip: [''],
-      city: [''],
+      city: ['', Validators.required],
     }),
   });
 
