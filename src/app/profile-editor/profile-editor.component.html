@@ -22,6 +22,7 @@
   </div>
 
   <button type="submit" [disabled]="!profileForm.valid">Save</button>
+  <button (click)="fillOutSampleAddress()">Fill with sample address</button>
 </form>
 
 <p>All the data: {{ profileForm.value | json }}</p>

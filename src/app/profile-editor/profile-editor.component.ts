@@ -22,4 +22,15 @@ export class ProfileEditorComponent {
   onSubmit() {
     console.warn(this.profileForm.value);
   }
+
+  fillOutSampleAddress() {
+    this.profileForm.patchValue({
+      address: {
+        street: 'Rudolf-Harbig-Weg',
+        streetNumber: '123',
+        zip: '48149',
+        city: 'Münster',
+      },
+    });
+  }
 }
