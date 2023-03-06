@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-profile-editor',
@@ -7,15 +7,17 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./profile-editor.component.css'],
 })
 export class ProfileEditorComponent {
-  profileForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
+  constructor(private fb: FormBuilder) {}
 
-    address: new FormGroup({
-      street: new FormControl(''),
-      streetNumber: new FormControl(''),
-      zip: new FormControl(''),
-      city: new FormControl(''),
+  profileForm = this.fb.group({
+    firstName: [''],
+    lastName: [''],
+
+    address: this.fb.group({
+      street: [''],
+      streetNumber: [''],
+      zip: [''],
+      city: [''],
     }),
   });
 
