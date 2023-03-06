@@ -10,10 +10,16 @@ export class ProfileEditorComponent {
   profileForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
+
+    address: new FormGroup({
+      street: new FormControl(''),
+      streetNumber: new FormControl(''),
+      zip: new FormControl(''),
+      city: new FormControl(''),
+    }),
   });
 
   onSubmit() {
     console.warn(this.profileForm.value);
-    console.log(this.profileForm.valid);
   }
 }

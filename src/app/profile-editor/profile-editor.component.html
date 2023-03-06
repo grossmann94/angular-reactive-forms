@@ -5,10 +5,23 @@
   <label for="last-name">Last Name: </label>
   <input id="last-name" type="text" formControlName="lastName" required />
 
+  <div formGroupName="address">
+    <h2>Address</h2>
+
+    <label for="street">Street: </label>
+    <input id="street" type="text" formControlName="street" />
+
+    <label for="streetNumber">Street number: </label>
+    <input id="streetNumber" type="text" formControlName="streetNumber" />
+
+    <label for="zip">Zip Code: </label>
+    <input id="zip" type="text" formControlName="zip" />
+
+    <label for="city">City: </label>
+    <input id="city" type="text" formControlName="city" />
+  </div>
+
   <button type="submit" [disabled]="!profileForm.valid">Save</button>
 </form>
 
-<p>
-  Your full name: {{ profileForm.value.firstName }}
-  {{ profileForm.value.lastName }}
-</p>
+<p>All the data: {{ profileForm.value | json }}</p>
