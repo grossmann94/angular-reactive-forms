@@ -4,6 +4,7 @@ import {
   FormGroup,
   FormBuilder,
   Validators,
+  FormArray,
 } from '@angular/forms';
 
 @Component({
@@ -24,6 +25,7 @@ export class ProfileEditorComponent {
       zip: [''],
       city: ['', Validators.required],
     }),
+    aliases: this.fb.array([this.fb.control('')]),
   });
 
   onSubmit() {
@@ -39,5 +41,13 @@ export class ProfileEditorComponent {
         city: 'Münster',
       },
     });
+  }
+  
+  get aliases() {
+    return this.profileForm.get('aliases') as FormArray;
+  }
+
+  addAlias() {
+    this.aliases.push(this.fb.control(''));
   }
 }
